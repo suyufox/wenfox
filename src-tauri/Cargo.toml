@@ -1,0 +1,27 @@
+[package]
+authors = ["xiehuqiqi"]
+description = "✨ 文狐の小工具库 | A collection of tools for Wenhu"
+edition = "2021"
+license = 'MIT'
+name = "wenhu"
+repository = "https://github.com/xiehuqiqi/wenfox"
+rust-version = "1.77.2"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+# [lib]
+# crate-type = ["staticlib", "cdylib", "rlib"]
+# name = "back_end_library"
+
+[build-dependencies]
+tauri-build = {version = "2.0.5", features = [] }
+
+[dependencies]
+clap = {version = "4.5.31", features = ["derive"] }
+colored = "2.2.0"
+log = "0.4.26"
+serde = {version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tauri = {version = "2.3.1", features = [] }
+tauri-plugin-log = "2.2.3"

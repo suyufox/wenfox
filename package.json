@@ -1,6 +1,7 @@
 {
   "name": "wenfox",
   "version": "0.0.1",
+  "wixver": "0.0.1",
   "private": true,
   "author": "xiehuqiqi",
   "license": "MIT",
@@ -8,6 +9,16 @@
   "description": "",
   "scripts": {
     "dev:webui": "pnpm run -F @wenfox/webui dev",
-    "build:webui": "pnpm run -F @wenfox/webui build"
+    "build:webui": "pnpm run -F @wenfox/webui build",
+    "tauri": "tauri",
+    "tauri:dev": "concurrently -n WEBUI,TAURI -c blue,red \"pnpm run dev:webui\" \"pnpm run tauri dev\"",
+    "tauri:build": "pnpm run tauri build"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.3.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.3.1",
+    "concurrently": "^9.1.2"
   }
 }
