@@ -1,0 +1,73 @@
+# EditorConfig 通用配置
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.rs]
+indent_style = space
+indent_size = 4
+
+[*.{js,ts,vue}]
+indent_size = 2
+
+
+[*.{json,json5}]
+indent_size = 2
+indent_style = space
+
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = 120
+
+[*.{css,scss}]
+indent_size = 2
+indent_style = space
+
+[*.html]
+indent_size = 2
+indent_style = space
+
+[*.{yml,yaml}]
+indent_size = 2
+indent_style = space
+
+[*.toml]
+indent_style = space
+indent_size = 4  # 保持与Rust配置一致
+
+# 配置文件类
+[.{a-z}*rc]
+indent_size = 2
+indent_style = space
+
+[.*ignore]
+indent_size = 2
+indent_style = space
+
+# Shell脚本
+[*.sh]
+indent_style = tab
+end_of_line = lf
+
+# Docker/Makefile
+[Dockerfile]
+indent_style = tab
+
+[Makefile]
+indent_style = tab
+
+# 测试文件
+[*.{spec,test}.{js,ts}]
+indent_size = 2
+indent_style = space
+
+# GitHub Workflows
+[.github/workflows/*.yml]
+indent_size = 2
+indent_style = space

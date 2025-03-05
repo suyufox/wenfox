@@ -15,6 +15,7 @@ version = "0.1.0"
 # name = "back_end_library"
 
 [build-dependencies]
+chrono = "0.4.40"
 tauri-build = {version = "2.0.5", features = [] }
 
 [dependencies]
@@ -24,4 +25,27 @@ log = "0.4.26"
 serde = {version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tauri = {version = "2.3.1", features = [] }
+tauri-plugin-clipboard-manager = "2.2.1"
+tauri-plugin-deep-link = "2"
+tauri-plugin-dialog = "2.2.0"
+tauri-plugin-fs = "2.2.0"
 tauri-plugin-log = "2.2.3"
+tauri-plugin-notification = "2"
+tauri-plugin-os = "2"
+tauri-plugin-persisted-scope = "2"
+tauri-plugin-process = "2"
+tauri-plugin-shell = "2"
+tauri-plugin-stronghold = "2"
+# https://github.com/HuakunShen/tauri-plugin-network
+#tauri-plugin-network = "2.0.4"
+# https://github.com/ayangweb/tauri-plugin-fs-pro
+# tauri-plugin-fs-pro = "2.3.0"
+# https://github.com/HuakunShen/tauri-plugin-system-info
+tauri-plugin-system-info = "2.0.8"
+
+[target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
+tauri-plugin-global-shortcut = "2.2.0"
+# single-instance not ts-api
+tauri-plugin-single-instance = {version = "2.0.0", features = ["deep-link"] }
+tauri-plugin-updater = "2"
+tauri-plugin-window-state = "2"
