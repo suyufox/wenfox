@@ -1,0 +1,9 @@
+[package]
+authors = ["xiehuqiqi"]
+description = "✨ 文狐の小工具库 | A collection of tools for Wenhu"
+edition = "2021"
+license = 'Apache-2.0'
+name = "wenhu"
+version = "0.1.4"
+
+[dependencies]
