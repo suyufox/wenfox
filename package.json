@@ -1,7 +1,7 @@
 {
   "name": "wenfox",
-  "version": "0.0.1",
-  "wixver": "0.0.1",
+  "version": "0.1.0",
+  "wixVer": "0.1.0",
   "private": true,
   "author": "xiehuqiqi",
   "license": "MIT",
@@ -10,8 +10,10 @@
   "scripts": {
     "dev:webui": "pnpm run -F @wenfox/webui dev",
     "build:webui": "pnpm run -F @wenfox/webui build",
+    "dev:manage": "pnpm run -F @wenfox/manage dev",
+    "build:manage": "pnpm run -F @wenfox/manage build",
     "tauri": "tauri",
-    "tauri:dev": "concurrently -n WEBUI,TAURI -c blue,red \"pnpm run dev:webui\" \"pnpm run tauri dev\"",
+    "tauri:dev": "concurrently -n Manage,TAURI -c write,red  \"pnpm run dev:manage\" \"pnpm run tauri dev\"",
     "tauri:build": "pnpm run tauri build",
     "format:rs": "cargo fmt",
     "format:webui": "pnpm -F @wenfox/webui exec prettier --write .",

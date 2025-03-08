@@ -2,10 +2,11 @@
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "wenfox",
   "mainBinaryName": "wenfox",
-  "version": "0.1.0",
+  "version": "../package.json",
   "identifier": "wen.xiehuqiqi.wenfox",
   "build": {
     "devUrl": "http://localhost:9800",
+    "beforeDevCommand": "pnpm dev:webui",
     "beforeBuildCommand": "pnpm build:webui",
     "frontendDist": "../dist"
   },
@@ -18,8 +19,8 @@
         "title": "Wenfox | main window",
         "url": "/",
         "label": "main",
-        "width": 800,
-        "height": 500,
+        "width": 1000,
+        "height": 600,
         "center": true,
         "minHeight": 500,
         "minWidth": 800,
@@ -156,7 +157,27 @@
       "wix": {
         "language": ["en-US", "zh-TW", "zh-CN"],
         "upgradeCode": "2c5eaf72-e0fd-5276-bc32-488a42374a9c",
-        "version": "../package.json#wixver"
+        "version": "0.1.0"
+      }
+    }
+  },
+  "plugins": {
+    "deep-link": {
+      "mobile": [
+        { "host": "yufox.us.kg", "pathPrefix": ["/open"] },
+        { "host": "another.site.br" }
+      ],
+      "desktop": {
+        "schemes": ["wenfox", "my-tauri-app"]
+      }
+    },
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEM0MDQ2QTYzNDkyNDZBMDgKUldRSWFpUkpZMm9FeEEweWtBa1UyL2JjWVA4MyszdXBWOFhodExxUFR4TnRoRk8yNUplaFNSMVQK",
+      "endpoints": [
+        "https://github.com/xiehuqiqi/wenfox/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
       }
     }
   }

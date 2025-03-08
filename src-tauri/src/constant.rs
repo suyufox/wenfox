@@ -1,7 +1,7 @@
 use colored::Colorize;
 use std::env;
 
-pub struct WenhuCliMessage {
+pub struct WenfoxCliMessage {
     pub version: &'static str,
     pub name: &'static str,
     pub description: &'static str,
@@ -10,7 +10,7 @@ pub struct WenhuCliMessage {
     pub author: &'static str,
 }
 
-pub static WENHU_CLI_MESSAGE: WenhuCliMessage = WenhuCliMessage {
+pub static WENFOX_CLI_MESSAGE: WenfoxCliMessage = WenfoxCliMessage {
     name: env!("CARGO_PKG_NAME"),
     version: env!("CARGO_PKG_VERSION"),
     description: env!("CARGO_PKG_DESCRIPTION"),
@@ -28,7 +28,7 @@ lazy_static::lazy_static! {
             r#"{{before-help}} {{about-section}}{}
 {{usage-heading}} {{usage}}
 {{all-args}}
-            
+
 {}{{after-help}}"#,
             *SEPARATOR,  // 上方分隔线
             *SEPARATOR   // 下方分隔线
@@ -36,8 +36,8 @@ lazy_static::lazy_static! {
 
     pub static ref BEFORE_HELP: String = format!(
         r#"> {} ──── @{} "#,
-            WENHU_CLI_MESSAGE.name.red().bold(),
-            WENHU_CLI_MESSAGE.version.bright_cyan()
+            WENFOX_CLI_MESSAGE.name.red().bold(),
+            WENFOX_CLI_MESSAGE.version.bright_cyan()
     );
 
     pub static ref AFTER_HELP: String = format!(
@@ -49,18 +49,18 @@ lazy_static::lazy_static! {
 {}",
             "Packet information".bright_magenta().bold(),
             "Name".bright_cyan(),
-            WENHU_CLI_MESSAGE.author,
-            WENHU_CLI_MESSAGE.name,
-            WENHU_CLI_MESSAGE.name.red().bold(),
-            WENHU_CLI_MESSAGE.version.bright_cyan(),
+            WENFOX_CLI_MESSAGE.author,
+            WENFOX_CLI_MESSAGE.name,
+            WENFOX_CLI_MESSAGE.name.red().bold(),
+            WENFOX_CLI_MESSAGE.version.bright_cyan(),
             "Author".bright_cyan(),
-            WENHU_CLI_MESSAGE.author,
-            WENHU_CLI_MESSAGE.author.yellow(),
+            WENFOX_CLI_MESSAGE.author,
+            WENFOX_CLI_MESSAGE.author.yellow(),
             "License".bright_cyan(),
-            WENHU_CLI_MESSAGE.license,
-            WENHU_CLI_MESSAGE.license.bright_blue(),
+            WENFOX_CLI_MESSAGE.license,
+            WENFOX_CLI_MESSAGE.license.bright_blue(),
             "Build-Time".bright_cyan(),
-            WENHU_CLI_MESSAGE.build_time.bright_white(),
+            WENFOX_CLI_MESSAGE.build_time.bright_white(),
             *SEPARATOR
     );
 }

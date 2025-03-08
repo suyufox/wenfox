@@ -1,0 +1,91 @@
+name: Tauri Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [windows-latest, macos-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          package-manager: pnpm  # 新增pnpm配置
+
+      - name: Setup Rust
+        uses: actions-rust-lang/setup-rust@v1
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile  # 替换npm为pnpm
+
+      - name: Build Tauri
+        run: pnpm run tauri build  # 替换npm为pnpm
+        env:
+          TARGET_PLATFORM: ${{ matrix.platform }}
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: tauri-build-${{ matrix.platform }}
+          path: |
+            src-tauri/target/release/*.app
+            src-tauri/target/release/*.AppImage
+            src-tauri/target/release/*.msi
+
+  create-release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: dist
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          generate_release_notes: true
+          files: |
+            dist/**/*.app
+            dist/**/*.AppImage
+            dist/**/*.msi
+
+      - name: Generate updater.json
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          TIMESTAMP=$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')
+          cat << EOF > updater.json
+          {
+            "version": "$VERSION",
+            "notes": "Auto-generated release",
+            "pub_date": "$TIMESTAMP",
+            "platforms": {
+              "darwin": {
+                "url": "${{ steps.create_release.outputs.upload_url }}"
+              },
+              "linux": {
+                "url": "${{ steps.create_release.outputs.upload_url }}"
+              },
+              "win64": {
+                "url": "${{ steps.create_release.outputs.upload_url }}"
+              }
+            }
+          }
+          EOF
+
+      - name: Upload updater.json
+        uses: softprops/action-gh-release@v1
+        with:
+          files: updater.json

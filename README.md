@@ -15,7 +15,15 @@
 
 ## 目录结构
 
-wenfox/ ├── plugins/ # 插件系统核心实现 ├── rust-lib/ # Rust 核心库 (使用 Cargo 管理) ├── node-app/ # Node.js 主应用 (使用 npm/yarn 管理) ├── .gitignore # 多语言忽略规则 └── LICENSE # MIT 许可证
+```plaintext
+wenfox/
+├── .vscode/
+├── app
+├── dist
+├── pom.xml            # Maven构建文件
+├── package.json       # Node.js项目配置
+└── README.md          # 项目说明
+```
 
 ## 快速开始
 
@@ -42,11 +50,11 @@ fn plugin_entry() {
 
 ## 贡献指南
 
-请阅读 [CONTRIBUTING.md](https://file+.vscode-resource.vscode-cdn.net/c%3A/Users/suyufox/.vscode/extensions/marscode.marscode-extension-1.1.68/CONTRIBUTING.md) 了解开发规范
+请阅读 [CONTRIBUTING.md](https://github.com/xiehuqiqi/wenfox/) 了解开发规范
 
 ## 许可证
 
-本项目采用 [MIT 许可证](https://file+.vscode-resource.vscode-cdn.net/c%3A/Users/suyufox/.vscode/extensions/marscode.marscode-extension-1.1.68/LICENSE)
+本项目采用 [MIT 许可证](http://github.com/xiehuqiqi/wenfox/LICENSE)
 
 ## 注意事项
 

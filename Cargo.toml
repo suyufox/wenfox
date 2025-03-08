@@ -1,3 +1,14 @@
 [workspace]
-members = ["src-tauri"]
+members = [
+  "libs/configs",
+  "libs/locale",
+  "libs/plugins",
+  "libs/quest",
+  "libs/server",
+  "src-tauri",
+]
 resolver = "2"
+
+[profile.dev]
+opt-level = 1 # 基础优化平衡编译速度与内存使用
+split-debuginfo = "packed" # 压缩调试信息减少内存占用

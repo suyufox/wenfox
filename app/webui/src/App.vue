@@ -5,6 +5,14 @@ import { invoke } from "@tauri-apps/api/core";
 const greetMsg = ref("");
 const name = ref("");
 
+async function start() {
+  await invoke('start_server', { port: 9803 })
+}
+
+async function stop() {
+  await invoke('stop_server')
+}
+
 async function greet() {
   // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
   greetMsg.value = await invoke("greet", { name: name.value });
@@ -34,6 +42,11 @@ async function greet() {
     </form>
     <p>{{ greetMsg }}</p>
   </main>
+  <div>
+    <p>xxxxxxxxxxxxxx server xxxxxxxxxxxxxxxxxx</p>
+    <button @click="start">启动服务</button>
+    <button @click="stop">停止服务</button>
+  </div>
 </template>
 
 <style scoped>
