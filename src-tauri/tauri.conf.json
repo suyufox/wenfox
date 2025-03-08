@@ -3,7 +3,7 @@
   "productName": "wenfox",
   "mainBinaryName": "wenfox",
   "version": "../package.json",
-  "identifier": "wen.xiehuqiqi.wenfox",
+  "identifier": "wen.suyufox.wenfox",
   "build": {
     "devUrl": "http://localhost:9800",
     "beforeDevCommand": "pnpm dev:webui",

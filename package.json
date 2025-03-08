@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "wixVer": "0.1.0",
   "private": true,
-  "author": "xiehuqiqi",
+  "author": "suyufox",
   "license": "MIT",
   "packageManager": "pnpm@10.5.2",
   "description": "✨ 文狐の小工具库 | A collection of tools for Wenhu",
