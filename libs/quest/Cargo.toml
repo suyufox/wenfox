@@ -1,6 +1,0 @@
-[package]
-edition = "2024"
-name = "wenfox-quest"
-version = "0.1.0"
-
-[dependencies]

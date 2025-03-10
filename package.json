@@ -10,11 +10,11 @@
   "scripts": {
     "dev:webui": "pnpm run -F @wenfox/webui dev",
     "build:webui": "pnpm run -F @wenfox/webui build",
-    "dev:manage": "pnpm run -F @wenfox/manage dev",
-    "build:manage": "pnpm run -F @wenfox/manage build",
+    "dev:manager": "pnpm run -F @wenfox/manager dev",
+    "build:manager": "pnpm run -F @wenfox/manager build",
     "tauri": "tauri",
-    "tauri:dev": "concurrently -n Manage,TAURI -c write,red  \"pnpm run dev:manage\" \"pnpm run tauri dev\"",
-    "tauri:build": "pnpm run tauri build",
+    "tauri:dev": "concurrently -n Manager,_Webui_,_Tauri_ -c green,blue,yellow  \"pnpm run dev:manager\" \"pnpm run dev:webui\" \"pnpm run tauri dev\"",
+    "tauri:build": "pnpm run build:webui && pnpm run build:manager && pnpm run tauri build",
     "format:rs": "cargo fmt",
     "format:webui": "pnpm -F @wenfox/webui exec prettier --write .",
     "format": "pnpm format:rs && pnpm format:webui"

@@ -24,14 +24,14 @@ export default defineConfig(async () => ({
   clearScreen: false,
   // 2. tauri expects a fixed port, fail if that port is not available
   server: {
-    port: 9800,
+    port: 47600,
     strictPort: true,
     host: host || false,
     hmr: host
       ? {
           protocol: "ws",
           host,
-          port: 9801,
+          port: 47601,
         }
       : undefined,
     watch: {
@@ -40,6 +40,6 @@ export default defineConfig(async () => ({
     },
   },
   build: {
-    outDir: "../../dist",
+    outDir: "../../src-tauri/resources/web/webui",
   }
 }));

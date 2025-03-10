@@ -1,0 +1,24 @@
+[package]
+edition = "2021"
+name = "wenfox-server"
+version = "0.1.0"
+
+[dependencies]
+actix-web = "4.9.0"
+awc = "3.5.1"
+chrono = {workspace = true}
+clap = {workspace = true}
+colored = {workspace = true}
+lazy_static = {workspace = true}
+log = {workspace = true}
+regex = "1.11.1"
+serde = {workspace = true}
+serde_json = {workspace = true}
+serde_yaml = {workspace = true}
+tokio = {workspace = true, features = ["rt-multi-thread", "macros", "sync"]}
+toml = {workspace = true}
+uuid = {workspace = true}
+
+[[bin]]
+name = "wenfox-server"
+path = "src/main.rs"

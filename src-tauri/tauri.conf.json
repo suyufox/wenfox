@@ -5,10 +5,8 @@
   "version": "../package.json",
   "identifier": "wen.suyufox.wenfox",
   "build": {
-    "devUrl": "http://localhost:9800",
-    "beforeDevCommand": "pnpm dev:webui",
-    "beforeBuildCommand": "pnpm build:webui",
-    "frontendDist": "../dist"
+    "devUrl": "http://localhost:47600",
+    "frontendDist": "resources/web/webui"
   },
   "app": {
     "withGlobalTauri": true,
@@ -45,11 +43,14 @@
     "android": {
       "minSdkVersion": 24
     },
-    "longDescription": "文狐の小工具库，是个有命令行的gui应用，你可以使用它来做一些事情. | Winfox's widget library is a gui application with a command line, you can use it to do some things.",
+    "longDescription": "文狐の小工具库，是个gui应用，你可以使用它来做一些事情. | Winfox's widget library is a gui application, you can use it to do some things.",
     "shortDescription": "文狐の小工具库 | A collection of tools for Wenhu",
     "category": "DeveloperTool",
     "copyright": null,
     "homepage": "https://yufox.us.kg",
+    "resources": {
+      "resources/": "resources/"
+    },
     "createUpdaterArtifacts": true,
     "iOS": {
       "minimumSystemVersion": "13.0"
@@ -158,26 +159,6 @@
         "language": ["en-US", "zh-TW", "zh-CN"],
         "upgradeCode": "2c5eaf72-e0fd-5276-bc32-488a42374a9c",
         "version": "0.1.0"
-      }
-    }
-  },
-  "plugins": {
-    "deep-link": {
-      "mobile": [
-        { "host": "yufox.us.kg", "pathPrefix": ["/open"] },
-        { "host": "another.site.br" }
-      ],
-      "desktop": {
-        "schemes": ["wenfox", "my-tauri-app"]
-      }
-    },
-    "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEM0MDQ2QTYzNDkyNDZBMDgKUldRSWFpUkpZMm9FeEEweWtBa1UyL2JjWVA4MyszdXBWOFhodExxUFR4TnRoRk8yNUplaFNSMVQK",
-      "endpoints": [
-        "https://github.com/xiehuqiqi/wenfox/releases/latest/download/latest.json"
-      ],
-      "windows": {
-        "installMode": "passive"
       }
     }
   }

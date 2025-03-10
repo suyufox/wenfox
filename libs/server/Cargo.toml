@@ -1,8 +1,0 @@
-[package]
-edition = "2024"
-name = "wenfox-server"
-version = "0.1.0"
-
-[dependencies]
-actix-web = "4.9.0"
-tokio = { version = "1.44.0", features = ["full"] }

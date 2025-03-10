@@ -13,47 +13,24 @@ chrono = "0.4.40"
 tauri-build = {version = "2.0.5", features = []}
 
 [dependencies]
-chrono = "0.4.40"
-# clap = {version = "4.5.31", features = ["derive"] }
-colored = "3.0.0"
-# lazy_static = "1.5.0"
-log = "0.4.26"
-serde = {version = "1.0", features = ["derive"]}
-serde_json = "1.0"
-# serde_yaml = "0.9.34"
+chrono = {workspace = true}
+colored = {workspace = true}
+lazy_static = {workspace = true}
+log = {workspace = true}
+serde = {workspace = true}
+serde_json = {workspace = true}
+serde_yaml = {workspace = true}
 tauri = {version = "2.3.1", features = []}
-tauri-plugin-clipboard-manager = "2.2.1"
-tauri-plugin-deep-link = "2"
-tauri-plugin-dialog = "2.2.0"
 tauri-plugin-fs = "2.2.0"
 tauri-plugin-log = "2.2.3"
 tauri-plugin-notification = "2"
-tauri-plugin-os = "2"
-tauri-plugin-persisted-scope = "2"
-tauri-plugin-process = "2"
 tauri-plugin-shell = "2"
-tauri-plugin-store = "2.2.0"
-tauri-plugin-stronghold = "2"
-# https://github.com/HuakunShen/tauri-plugin-network
-#tauri-plugin-network = "2.0.4"
-# https://github.com/ayangweb/tauri-plugin-fs-pro
-# tauri-plugin-fs-pro = "2.3.0"
-# https://github.com/HuakunShen/tauri-plugin-system-info
-tauri-plugin-system-info = "2.0.8"
-wenfox-configs = {path = "../libs/configs"}
-wenfox-locale = {path = "../libs/locale"}
-wenfox-plugins = {path = "../libs/plugins"}
-wenfox-quest = {path = "../libs/quest"}
-wenfox-server = {path = "../libs/server"}
-# thiserror = "2.0.12"
-tokio = {version = "1.44.0", features = ["full"]}
-# toml = "0.8.20"
-# uuid = {version = "1.15.1", features = ["v4", "serde"] }
-# warp = "0.3.7"
-# winapi = {version = "0.3.9", features = ["consoleapi", "wincon", "winuser"] }
+tokio = {workspace = true, features = ["rt-multi-thread", "macros", "sync"]}
+toml = {workspace = true}
+uuid = {workspace = true}
+
+# 子包
+wenfox-server = {path = "../crates/server"}
 
 [target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
-tauri-plugin-global-shortcut = "2.2.0"
-tauri-plugin-single-instance = {version = "2.0.0", features = ["deep-link"]}
-tauri-plugin-updater = "2"
 tauri-plugin-window-state = "2"

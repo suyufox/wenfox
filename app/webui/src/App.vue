@@ -6,11 +6,13 @@ const greetMsg = ref("");
 const name = ref("");
 
 async function start() {
-  await invoke('start_server', { port: 9803 })
+  await invoke('run_server')
+  console.log("start")
 }
 
 async function stop() {
   await invoke('stop_server')
+  console.log("stop")
 }
 
 async function greet() {
